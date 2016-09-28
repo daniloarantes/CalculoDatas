@@ -36,14 +36,14 @@ function calculaDatas(){
 	var i = 0;
 	var f = new Date();
 	f.setDate(inicio + 1);
-	
-//console.log(dInicio);
+
+
 
 	while (i < 5) {
 
 		f.setDate(f.getDate() + 1);
 		scheduler.push(f.toDateString());
-	//	console.log(f);
+
 
 		i++;
 	};

@@ -4,14 +4,16 @@
 	<meta charset="UTF-8">
 	<title>Calendário Teste</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<script src="js/funcoes.js"></script>
+	<script src="js/funcoes2.js"></script>
 	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 	<script type="text/javascript" src="js/date-pt-BR.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<script>
 		$( function() {
-      			$( "#datepicker" ).datepicker();
-			$( "#datepicker" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
+      			$( "#inicio" ).datepicker();
+						$( "#fim" ).datepicker();
+						$( "#inicio" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
+						$( "#fim" ).datepicker( "option", "dateFormat", "dd-mm-yy" );
        		});
 
 	</script>
@@ -27,7 +29,9 @@
 		<input type="checkbox" name="semana[]" value="5"/>Sexta-Feira
 		<input type="checkbox" name="semana[]" value="6"/>Sábado
 		<br><br>
-		<p>Date: <input type="text" id="datepicker"></p>
+		<p>Início: <input type="text" id="inicio"></p>
+
+		<p>Fim: <input type="text" id="fim"></p>
 		<input type="button" value="enviar" id="bt">
 	</fieldset>
 <div id="result">

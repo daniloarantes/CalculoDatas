@@ -37,29 +37,36 @@ function calculaDatas(){
 	inicio.setDate(dInicio.getDate());
 	fim.setDate(dFim.getDate());
 
-//	scheduler.push(inicio.toDateString());
+	scheduler.push(inicio.toDateString());
 
 //	while (inicio.getDate() < fim.getDate()) {
 
 
 // LAÇO NÃO ESTÁ CONTANDO CORRETAMENTE
+var dia = new Date(inicio);
 
-while (i < 5) {
+while ( dia.toLocaleDateString() != fim.toLocaleDateString()) {
+	dia = new Date( scheduler[ scheduler.length-1 ].valueOf());
 
-
-	if ( camposMarcados[i] = inicio.getDay() ) {
-			scheduler.push(inicio.toDateString());
-			inicio.setDate(inicio.getDate() + 1);
+	if (dia.toLocaleDateString() == fim.toLocaleDateString()) {
+		break;
 	} else {
-		alert("fora");
-	}
-
-
-	i++;
+			inicio.setDate(inicio.getDate() + 1);
+			scheduler.push(inicio.toDateString());
 }
 
+document.getElementById("result").innerHTML += scheduler[i] + "<br>";
+	i++;
 
-document.getElementById("result").innerHTML = "<br>" + scheduler.valueOf();
+}
+document.getElementById("result").innerHTML += scheduler[ scheduler.length -1 ] + "<br>";
+
+
+
+//alert( scheduler[ scheduler.length-1 ].valueOf() );
+//alert(dia.getDay());
+
+//document.getElementById("result").innerHTML = scheduler.valueOf();
 
 
 

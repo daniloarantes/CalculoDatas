@@ -9,7 +9,7 @@ $(document).ready(function() {
 		verificaCheckBox();
 		calculaDatas();
 
-		//alert("Inicio: " + datainicio.toLocaleDateString() + " Fim: " + datafim.toLocaleDateString());
+		alert("Inicio: " + datainicio.toLocaleDateString() + " Fim: " + datafim.toLocaleDateString());
 	});
 
 
@@ -40,22 +40,14 @@ function calculaDatas(){
 
 
 	while (i < 5) {
-
 		f.setDate(f.getDate() + 1);
 		scheduler.push(f.toDateString());
-
-
 		i++;
 	};
 
 
 
 console.log(scheduler.valueOf());
-
-
-
-
-
 
 
 

@@ -1,6 +1,15 @@
 $(document).ready(function() {
 
 	camposMarcados = new Array();
+	var ndiasemana = new Array(7);
+    ndiasemana[0] = "0";
+    ndiasemana[1] = "1";
+    ndiasemana[2] = "2";
+    ndiasemana[3] = "3";
+    ndiasemana[4] = "4";
+    ndiasemana[5] = "5";
+    ndiasemana[6] = "6";
+
 	var datainicio, datafim;
 	pegaData();
 
@@ -32,46 +41,28 @@ function calculaDatas(){
 	var scheduler = new Array();
 	var inicio = new Date();
 	var fim = new Date();
-	var i = 0;
-	var j = 0;
+	var dia = new Date(inicio);
+
 	inicio.setDate(dInicio.getDate());
 	fim.setDate(dFim.getDate());
 
-	scheduler.push(inicio.toDateString());
-
-//	while (inicio.getDate() < fim.getDate()) {
-
-
-// LAÇO NÃO ESTÁ CONTANDO CORRETAMENTE
-var dia = new Date(inicio);
-
 while ( dia.toLocaleDateString() != fim.toLocaleDateString()) {
-	dia = new Date( scheduler[ scheduler.length-1 ].valueOf());
+		for (var j = 0; j <= camposMarcados.length -1; j++) {
+				var n = ndiasemana[dia.getDay()];
 
-	if (dia.toLocaleDateString() == fim.toLocaleDateString()) {
-		break;
-	} else {
-			inicio.setDate(inicio.getDate() + 1);
-			scheduler.push(inicio.toDateString());
+				if ( camposMarcados[j] === n ) {
+					scheduler.push(inicio.toDateString());
+				}
+		}
+		inicio.setDate(inicio.getDate() + 1);
+		dia = new Date(inicio );
 }
 
-document.getElementById("result").innerHTML += scheduler[i] + "<br>";
-	i++;
-
-}
-document.getElementById("result").innerHTML += scheduler[ scheduler.length -1 ] + "<br>";
-
-
-
-//alert( scheduler[ scheduler.length-1 ].valueOf() );
-//alert(dia.getDay());
-
-//document.getElementById("result").innerHTML = scheduler.valueOf();
-
-
-
+scheduler.push(inicio.toDateString());
+document.getElementById("result").innerHTML += scheduler.valueOf() + "<br>";
 
 };
+
 
 function verificaCheckBox(){
 	$("input[type=checkbox][name='semana[]']:checked").each(function(){

@@ -35,6 +35,12 @@ function pegaData(){
 	});
 };
 
+function addDays(inicio, days) {
+	var result = new Date(inicio);
+	result.setDate(result.getDate() + days);
+	return result;
+}
+
 function calculaDatas(){
 	var dInicio = new Date(datainicio);
 	var dFim = new Date(datafim);
@@ -42,10 +48,12 @@ function calculaDatas(){
 	var inicio = new Date();
 	var fim = new Date();
 
+	inicio = dInicio;
+	fim = dFim;
 
-	inicio.setDate(dInicio.getDate());
-	fim.setDate(dFim.getDate());
-	var dia = new Date(inicio);
+	var dia = new Date();
+	dia = inicio;
+
 while ( dia.toLocaleDateString() != fim.toLocaleDateString()) {
 		for (var j = 0; j <= camposMarcados.length -1; j++) {
 				var n = ndiasemana[dia.getDay()];
@@ -54,8 +62,8 @@ while ( dia.toLocaleDateString() != fim.toLocaleDateString()) {
 					scheduler.push(inicio.toDateString());
 				}
 		}
-		inicio.setDate(inicio.getDate() + 1);
-		dia = new Date(inicio);
+		inicio = addDays(inicio,1);
+		dia = inicio;
 }
 
 scheduler.push(inicio.toDateString());

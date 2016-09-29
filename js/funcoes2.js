@@ -41,11 +41,11 @@ function calculaDatas(){
 	var scheduler = new Array();
 	var inicio = new Date();
 	var fim = new Date();
-	var dia = new Date(inicio);
+
 
 	inicio.setDate(dInicio.getDate());
 	fim.setDate(dFim.getDate());
-
+	var dia = new Date(inicio);
 while ( dia.toLocaleDateString() != fim.toLocaleDateString()) {
 		for (var j = 0; j <= camposMarcados.length -1; j++) {
 				var n = ndiasemana[dia.getDay()];
@@ -55,11 +55,16 @@ while ( dia.toLocaleDateString() != fim.toLocaleDateString()) {
 				}
 		}
 		inicio.setDate(inicio.getDate() + 1);
-		dia = new Date(inicio );
+		dia = new Date(inicio);
 }
 
 scheduler.push(inicio.toDateString());
-document.getElementById("result").innerHTML += scheduler.valueOf() + "<br>";
+
+for (var i = 0; i < scheduler.length; i++) {
+	document.getElementById("result").innerHTML += scheduler[i] + "<br>";
+}
+
+
 
 };
 

@@ -3,29 +3,50 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Calendário Teste</title>
+	<link rel="stylesheet" href="css/estilo.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 	<script src="js/funcoes2.js"></script>
 	<link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 	<script type="text/javascript" src="date-pt-BR.js"></script>
 	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-	
+
 
 	</head>
 <body>
-<div id="corpo">
-	<fieldset id="teste">
-		<input type="checkbox" class="ckd" name="semana[]" value="1"/>Segunda-Feira
-		<input type="checkbox" name="semana[]" value="2"/>Terça-Feira
-		<input type="checkbox" name="semana[]" value="3"/>Quarta-Feira
-		<input type="checkbox" name="semana[]" value="4"/>Quinta-Feira
-		<input type="checkbox" name="semana[]" value="5"/>Sexta-Feira
-		<input type="checkbox" name="semana[]" value="6"/>Sábado
-		<input type="checkbox" name="semana[]" value="0"/>Domingo
-		<br><br>
-		<p>Data Inicial: <input type="text" id="inicio"></p>
-		<p>Data Final: <input type="text" id="fim"></p>
-		<input type="button" value="enviar" id="bt">
-	</fieldset>
+<div class="container">
+	<div class="row">
+		<h1 class="text-center">Seleção de Datas</h1>
+		<p class="text-center">Selecione os dias da semana e as datas de início e fim do evento</p>
+	</div>
+	<div class="row">
+		<div class="seldias">
+		<div class="checkbox">
+			<label class="checkbox-inline"><input type="checkbox" class="ckd" name="semana[]" value="1"> Segunda-Feira</label>
+			<label class="checkbox-inline"><input type="checkbox" name="semana[]" value="2"/>Terça-Feira</label>
+			<label class="checkbox-inline"><input type="checkbox" name="semana[]" value="3"/>Quarta-Feira</label>
+			<label class="checkbox-inline"><input type="checkbox" name="semana[]" value="4"/>Quinta-Feira</label>
+			<label class="checkbox-inline"><input type="checkbox" name="semana[]" value="5"/>Sexta-Feira</label>
+			<label class="checkbox-inline"><input type="checkbox" name="semana[]" value="6"/>Sábado</label>
+			<label class="checkbox-inline"><input type="checkbox" name="semana[]" value="0"/>Domingo</label>
+		</div>
+	</div>
+	</div>
+	<div class="row">
+			<div class="form-inline">
+				<div class="form-group">
+					<label for="inicio">Início</label>
+					<input type="text" id="inicio" class="form-control" placeholder="Data Inicial">
+				</div>
+				<div class="form-group">
+					<label for="fim">Fim</label>
+					<input type="text" id="fim" class="form-control" placeholder="Data Final">
+				</div>
+			<button type="button" value="enviar" id="bt" class="btn btn-default">Enviar</button>
+		</div>
+	</div>
+
+
 <div id="result">
 
 </div>
